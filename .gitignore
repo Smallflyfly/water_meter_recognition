@@ -1,0 +1,7 @@
+data/
+*.jpg
+*.png
+*.txt
+runs/
+weights/
+

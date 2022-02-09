@@ -96,7 +96,7 @@ def train():
             optimizer.step()
             if index % 100 == 0:
                 t = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-                info = 'Time: {}, Epoch: [{}/{}] [{}/{}]'.format(t, epoch + 1, config.max_epoch, index + 1, len(train_dataloader))
+                info = 'Time: {}, Epoch: [{}/{}] [{}/{}]'.format(t, epoch, config.max_epoch, index + 1, len(train_dataloader))
                 print(info)
                 total_loss_info = '==========>total loss: {:.6f}'.format(total_loss)
                 print(total_loss_info)
@@ -106,13 +106,14 @@ def train():
                 print(l1_loss_info)
                 dice_loss_info = '==========>dice loss: {:.6f}'.format(dice_loss)
                 print(dice_loss_info)
+                print()
 
             num_epoch = epoch * len(train_dataloader) + index
-            if index % 20 == 0:
-                writer.add_scalar('total_loss', total_loss)
-                writer.add_scalar('bce_loss', bce_loss)
-                writer.add_scalar('l1_loss', l1_loss)
-                writer.add_scalar('dice_loss', dice_loss)
+            if num_epoch % 20 == 0:
+                writer.add_scalar('total_loss', total_loss, num_epoch)
+                writer.add_scalar('bce_loss', bce_loss, num_epoch)
+                writer.add_scalar('l1_loss', l1_loss, num_epoch)
+                writer.add_scalar('dice_loss', dice_loss, num_epoch)
 
         scheduler.step()
 

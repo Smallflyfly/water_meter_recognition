@@ -4,4 +4,5 @@ data/
 *.txt
 runs/
 weights/
-
+results/
+*.zip

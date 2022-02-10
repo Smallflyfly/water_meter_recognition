@@ -18,13 +18,14 @@ class DetOptions():
         self.train_gt_dir = 'data/train_labels/labels'
         self.test_dir = 'data/test_imgs'
         self.save_dir = 'weights/'                            # 保存检测模型
-        self.saved_model_path = 'temp/det_models/checkpoint_final'    # 保存最终检测模型
-        self.det_res_dir = 'temp/det_res/'                            # 保存测试集检测结
-        self.thresh = 0.3                                             # 分割后处理阈值
+        self.saved_model_path = 'weights/net_120.pth'    # 保存最终检测模型
+        self.det_res_dir = 'results/pt'                            # 保存测试集检测结
+        self.det_res_vis_dir = 'results/vis'
+        self.thresh = 0.3                                          # 分割后处理阈值
         self.box_thresh = 0.5                                         # 检测框阈值
         self.max_candidates = 10                                      # 候选检测框数量（本数据集每张图像只有一个文本，因此可置为1）
         self.test_img_short_side = 640                                # 测试图像最短边长度
-        self.debug = True
+        self.debug = False
 
         self.check_debug()
 

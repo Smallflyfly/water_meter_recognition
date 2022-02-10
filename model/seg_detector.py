@@ -7,7 +7,7 @@
 from torch import nn
 
 from loss.loss import L1BalanceCELoss
-from model.decoder import SegDetector
+from model.seg_decoder import SegDetector
 from model.resnet import ResNet
 
 

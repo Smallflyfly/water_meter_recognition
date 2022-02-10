@@ -11,7 +11,6 @@ import cv2
 import numpy as np
 
 
-# 从分割图得到最终文字坐标的后处理方法
 import pyclipper
 import torch
 from shapely.geometry import Polygon

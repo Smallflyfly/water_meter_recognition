@@ -14,7 +14,7 @@ from dataset.data_augment import BaseAugment, ColorJitter, RandomCropData, MakeS
     NormalizeImage, FilterKeys
 import imgaug.augmenters as iaa
 
-from dataset.dataset import ImageDataset
+from dataset.seg_dataset import ImageDataset
 import matplotlib.pyplot as plt
 import numpy as np
 

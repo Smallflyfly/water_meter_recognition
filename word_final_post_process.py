@@ -22,19 +22,22 @@ def final_postProcess():
     rec_res_files = os.listdir(rec_res_dir)
 
     final_res = dict()
-    for file in os.listdir(test_dir):
-        res_file = file.replace('.jpg', '.txt')
-        if res_file not in rec_res_files:
-            final_res[file] = ''
-            continue
+    with open('results/final_res.txt', 'w', encoding='utf-8') as f1:
+        for index in range(1, 501):
+            file = 'test_{}.jpg'.format(index)
+            res_file = file.replace('.jpg', '.txt')
+            if res_file not in rec_res_files:
+                final_res[file] = ''
+                continue
+            with open(os.path.join(rec_res_dir, res_file), 'r') as f2:
+                rec_res = f2.readline().strip()
+                rec_res = ''.join([t if t not in 'ABCDEFGHIJ' else SPECIAL_CHARS[t] for t in rec_res])
+                f1.write(file + ' ' + rec_res + '\n')
+            # final_res[file] = ''.join([t if t not in 'ABCDEFGHIJ' else SPECIAL_CHARS[t] for t in rec_res])
 
-        with open(os.path.join(rec_res_dir, res_file), 'r') as f:
-            rec_res = f.readline().strip()
-        final_res[file] = ''.join([t if t not in 'ABCDEFGHIJ' else SPECIAL_CHARS[t] for t in rec_res])
-
-    with open('work/final_res.txt', 'w') as f:
-        for key, value in final_res.items():
-            f.write(key + '\t' + value + '\n')
+    # with open('results/final_res.txt', 'w') as f:
+    #     for key, value in final_res.items():
+    #         f.write(key + '\t' + value + '\n')
 
 
 if __name__ == '__main__':

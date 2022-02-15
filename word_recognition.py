@@ -60,7 +60,7 @@ def rec_test():
             image = rec_load_test_image(img_path)
             batch = [image, None, None]
             pred_prob = model.forward(batch)
-            print(pred_prob)
+            # print(pred_prob)
             # todo post precess
             rec_str = rec_decode(pred_prob, labelmap)[0]
             # write to file

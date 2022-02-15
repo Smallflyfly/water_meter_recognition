@@ -78,7 +78,7 @@ def train():
     config = DetOptions()
     train_dataset = ImageDataset(data_dir=config.train_dir, gt_dir=config.train_gt_dir, is_training=True,
                                  processes=train_processes)
-    train_dataloader = DataLoader(train_dataset, batch_size=2, num_workers=0, shuffle=True, drop_last=False)
+    train_dataloader = DataLoader(train_dataset, batch_size=config.batch_size, num_workers=config.num_workers, shuffle=True, drop_last=False)
     # batch = next(iter(train_dataloader))  # 获取一个 batch
     # show_image(batch)
     model = SegDetectorModel(device)

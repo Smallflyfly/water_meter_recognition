@@ -8,17 +8,17 @@
 
 class DetOptions:
     def __init__(self):
-        self.lr = 0.004
+        self.lr = 0.0005
         self.max_epoch = 200
         self.batch_size = 8
-        self.num_workers = 8
+        self.num_workers = 0
         self.print_interval = 100
         self.save_interval = 10
         self.train_dir = 'data/train_imgs'
         self.train_gt_dir = 'data/train_labels/labels'
         self.test_dir = 'data/test_imgs'
         self.save_dir = 'weights/'                            # 保存检测模型
-        self.saved_model_path = 'weights/net_120.pth'    # 保存最终检测模型
+        self.saved_model_path = 'weights/last.pth'    # 保存最终检测模型
         self.det_res_dir = 'results/pt'                            # 保存测试集检测结
         self.det_res_vis_dir = 'results/vis'
         self.det_word_save_dir = 'results/word_imgs'
@@ -48,17 +48,17 @@ class RecOptions:
         self.voc_size = 21  # 字符数量 '0123456789ABCDEFGHIJ' + 'PADDING'位
         self.decoder_sdim = 512
         self.max_len = 5  # 文本长度
-        self.lr = 0.001
+        self.lr = 0.0001
         self.milestones = [40, 60]  # 在第 40 和 60 个 epoch 训练时降低学习率
-        self.max_epoch = 80
-        self.batch_size = 8
+        self.max_epoch = 200
+        self.batch_size = 32
         self.num_workers = 0
         self.print_interval = 25
         self.save_interval = 125
         self.train_dir = 'data/word_train_imgs'
         self.test_dir = 'results/word_imgs'
         self.save_dir = 'weights/'
-        self.saved_model_path = 'weights/word_net_60.pth'
+        self.saved_model_path = 'weights/word_net_last.pth'
         self.rec_res_dir = 'results/word'
 
         self.debug = False
